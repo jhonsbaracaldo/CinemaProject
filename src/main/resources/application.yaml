@@ -15,3 +15,4 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         show-sql: true
 
+http://localhost:8080/document.yaml:
