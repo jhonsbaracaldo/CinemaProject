@@ -1,12 +1,10 @@
-package ProyectoIntegradorCine.Controller.Services;
+package ProyectoIntegradorCine.aplication.services.servicesuser;
 
 
-import ProyectoIntegradorCine.Controller.Entity.UserRepository;
-import ProyectoIntegradorCine.Controller.Entity.UserResgitration;
+import ProyectoIntegradorCine.domain.repository.UserRepository;
+import ProyectoIntegradorCine.domain.model.entity.user.UserResgitration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
