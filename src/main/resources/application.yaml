@@ -16,3 +16,8 @@ spring:
         show-sql: true
 
 http://localhost:8080/document.yaml:
+application:
+  security:
+    jwt:
+      secret-key: d5608c2a97c84dd0c0e0374ab865a131e0305df3f642ff83a03d796d748ac251
+      expiration: 86400000 # a day

@@ -1,35 +1,90 @@
 package ProyectoIntegradorCine.domain.model.entity.user;
 
+import ProyectoIntegradorCine.Security.Erole;
 import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(schema =  "\"userregistration\"")
-public class UserResgitration {
+public class UserResgitration implements UserDetails {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 @Column(unique = true)
     private String name;
     private String lastName;
+
+    private String password;
     private Integer idUser;
-    private String email;
-    public UserResgitration() {
+    private Boolean enable;
+@Enumerated(EnumType.ORDINAL)
+    private Erole erole;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+@Override
+    public String getPassword() {
+        return this.password;
     }
 
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
 
-    public UserResgitration(String name, String lastName, Integer idUser, String email) {
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.enable;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String email;
+
+
+    public UserResgitration(String name, String lastName, Integer idUser, String email,String password) {
         this.name = name;
         this.lastName = lastName;
         this.idUser = idUser;
         this.email = email;
+        this.password= password;
     }
 
-    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email) {
+    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email,String password) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.idUser = idUser;
         this.email = email;
+        this.password= password;
     }
 
     public Integer getId() {
