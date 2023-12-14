@@ -1,5 +1,6 @@
 package ProyectoIntegradorCine.domain.model.entity.user;
 
+
 import ProyectoIntegradorCine.Security.Erole;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,12 +18,20 @@ import java.util.Collection;
 @Entity
 @Table(schema =  "\"userregistration\"")
 public class UserResgitration implements UserDetails {
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(schema =  "\"userregistration\"")
+public class UserResgitration {
+
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 @Column(unique = true)
     private String name;
     private String lastName;
+
 
     private String password;
     private Integer idUser;
@@ -71,20 +80,37 @@ public class UserResgitration implements UserDetails {
 
 
     public UserResgitration(String name, String lastName, Integer idUser, String email,String password) {
+
+    private Integer idUser;
+    private String email;
+    public UserResgitration() {
+    }
+
+
+    public UserResgitration(String name, String lastName, Integer idUser, String email) {
+
         this.name = name;
         this.lastName = lastName;
         this.idUser = idUser;
         this.email = email;
+
         this.password= password;
     }
 
     public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email,String password) {
+
+    }
+
+    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email) {
+
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.idUser = idUser;
         this.email = email;
+
         this.password= password;
+
     }
 
     public Integer getId() {
