@@ -1,6 +1,7 @@
 package ProyectoIntegradorCine.Security;
 
-public enum Erole {
+public enum ERole {
 
     USER
+
 }

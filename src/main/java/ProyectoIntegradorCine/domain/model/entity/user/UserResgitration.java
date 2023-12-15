@@ -1,10 +1,13 @@
 package ProyectoIntegradorCine.domain.model.entity.user;
 
 
-import ProyectoIntegradorCine.Security.Erole;
+import ProyectoIntegradorCine.Security.ERole;
+
+
+
+
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -19,12 +22,7 @@ import java.util.Collection;
 @Table(schema =  "\"userregistration\"")
 public class UserResgitration implements UserDetails {
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(schema =  "\"userregistration\"")
-public class UserResgitration {
-
+@Getter
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -37,7 +35,7 @@ public class UserResgitration {
     private Integer idUser;
     private Boolean enable;
 @Enumerated(EnumType.ORDINAL)
-    private Erole erole;
+    private ERole erole;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -79,12 +77,7 @@ public class UserResgitration {
     private String email;
 
 
-    public UserResgitration(String name, String lastName, Integer idUser, String email,String password) {
 
-    private Integer idUser;
-    private String email;
-    public UserResgitration() {
-    }
 
 
     public UserResgitration(String name, String lastName, Integer idUser, String email) {
@@ -111,10 +104,6 @@ public class UserResgitration {
 
         this.password= password;
 
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public void setId(Integer id) {
