@@ -1,6 +1,11 @@
 package ProyectoIntegradorCine.domain.model.entity.user;
 
+
 import ProyectoIntegradorCine.Security.ERole;
+
+
+
+
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,12 +21,15 @@ import java.util.Collection;
 @Entity
 @Table(schema =  "\"userregistration\"")
 public class UserResgitration implements UserDetails {
+
+@Getter
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 @Column(unique = true)
     private String name;
     private String lastName;
+
 
     private String password;
     private Integer idUser;
@@ -69,25 +77,33 @@ public class UserResgitration implements UserDetails {
     private String email;
 
 
-    public UserResgitration(String name, String lastName, Integer idUser, String email,String password) {
+
+
+
+    public UserResgitration(String name, String lastName, Integer idUser, String email) {
+
         this.name = name;
         this.lastName = lastName;
         this.idUser = idUser;
         this.email = email;
+
         this.password= password;
     }
 
     public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email,String password) {
+
+    }
+
+    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email) {
+
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.idUser = idUser;
         this.email = email;
-        this.password= password;
-    }
 
-    public Integer getId() {
-        return id;
+        this.password= password;
+
     }
 
     public void setId(Integer id) {
