@@ -1,9 +1,8 @@
 package ProyectoIntegradorCine.domain.model.entity.user;
 
-import ProyectoIntegradorCine.Security.Erole;
+import ProyectoIntegradorCine.Security.ERole;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -28,7 +27,7 @@ public class UserResgitration implements UserDetails {
     private Integer idUser;
     private Boolean enable;
 @Enumerated(EnumType.ORDINAL)
-    private Erole erole;
+    private ERole erole;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
