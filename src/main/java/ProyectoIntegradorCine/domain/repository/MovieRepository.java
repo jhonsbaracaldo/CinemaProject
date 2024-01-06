@@ -12,7 +12,4 @@ public interface MovieRepository extends JpaRepository<Movie,Integer> {
 
     Optional<Movie> findProductByName(String name);
 
-public interface MovieRepository {
-
-
 }
