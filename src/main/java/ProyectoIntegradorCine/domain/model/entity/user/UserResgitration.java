@@ -41,6 +41,7 @@ public class UserResgitration implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
     }
+
     @Override
     public String getPassword() {
         return this.password;
@@ -70,14 +71,12 @@ public class UserResgitration implements UserDetails {
     public boolean isEnabled() {
         return this.enable;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
     private String email;
-
-
-
 
 
     public UserResgitration(String name, String lastName, Integer idUser, String email) {
@@ -87,10 +86,10 @@ public class UserResgitration implements UserDetails {
         this.idUser = idUser;
         this.email = email;
 
-        this.password= password;
+        this.password = password;
     }
 
-    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email,String password) {
+    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email, String password) {
 
     }
 
@@ -102,7 +101,7 @@ public class UserResgitration implements UserDetails {
         this.idUser = idUser;
         this.email = email;
 
-        this.password= password;
+        this.password = password;
 
     }
 
@@ -141,3 +140,4 @@ public class UserResgitration implements UserDetails {
     public void setEmail(String email) {
         this.email = email;
     }
+}
