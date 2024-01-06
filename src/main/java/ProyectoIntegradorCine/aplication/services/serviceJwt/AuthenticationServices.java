@@ -22,33 +22,33 @@ public record AuthenticationServices(UserRepository userRepository,
 
 
 
-  public String register(UserDto userDto){
-      UserResgitration user = UserResgitration.builder()
-              .name(userDto.Name())
-              .lastName(userDto.lastName())
-              .email(userDto.email())
-              .password(passwordEncoder.encode(userDto.password()))
-              .erole(ERole.USER)
-              .enable(true)
-              .build();
-      userRepository.save(user);
-      jwtServices.generateToken(user);
-      return jwtServices.generateToken(user);
-  }
+    public String register(UserDto userDto){
+        UserResgitration user = UserResgitration.builder()
+                .name(userDto.Name())
+                .lastName(userDto.lastName())
+                .email(userDto.email())
+                .password(passwordEncoder.encode(userDto.password()))
+                .erole(ERole.USER)
+                .enable(true)
+                .build();
+        userRepository.save(user);
+        jwtServices.generateToken(user);
+        return jwtServices.generateToken(user);
+    }
 
 
-  public String athenticate(AuthenticationDto authenticationDto){
-   authenticationManager.authenticate(
-     new UsernamePasswordAuthenticationToken(
-             authenticationDto.email(),
-             authenticationDto.password()
-     )
-   );
+    public String athenticate(AuthenticationDto authenticationDto){
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        authenticationDto.email(),
+                        authenticationDto.password()
+                )
+        );
 
-   UserResgitration user = userRepository.findUserByEmail(authenticationDto.email())
-           .orElseThrow();
-   return jwtServices.generateToken(user);
-  }
+        UserResgitration user = userRepository.findUserByEmail(authenticationDto.email())
+                .orElseThrow();
+        return jwtServices.generateToken(user);
+    }
 
 
 

@@ -24,7 +24,7 @@ class CrudUserController {
     public CrudUserController(UserService userService) {
         this.userService = userService;}
 /// mostrar usuarios
-@Operation(summary = "Return view User ")
+@Operation(summary = "Return view UserResgitration ")
 @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully users",
                 content = @Content(mediaType = "application/json",
@@ -38,12 +38,12 @@ public List<UserResgitration> getUser(){
     }
    /// añadir usuario
 
-    @Operation(summary = "modify user list ")
+    @Operation(summary = "modify userResgitration list ")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "the user was created successfully",
+            @ApiResponse(responseCode = "201", description = "the userResgitration was created successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = UserResgitration.class))),
-            @ApiResponse(responseCode = "404", description = "cannot create a user",
+            @ApiResponse(responseCode = "404", description = "cannot create a userResgitration",
                     content = @Content),
     })
     @PostMapping(path = "add")
@@ -52,9 +52,9 @@ public List<UserResgitration> getUser(){
     }
 
     /// actualizando
-    @Operation(summary = "update user ")
+    @Operation(summary = "update userResgitration ")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "updated user successfully",
+            @ApiResponse(responseCode = "201", description = "updated userResgitration successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = UserResgitration.class))),
             @ApiResponse(responseCode = "409", description = "did not respond to the update",

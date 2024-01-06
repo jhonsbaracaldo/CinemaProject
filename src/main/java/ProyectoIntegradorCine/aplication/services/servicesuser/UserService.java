@@ -1,8 +1,8 @@
 package ProyectoIntegradorCine.aplication.services.servicesuser;
 
 
-import ProyectoIntegradorCine.domain.repository.UserRepository;
 import ProyectoIntegradorCine.domain.model.entity.user.UserResgitration;
+import ProyectoIntegradorCine.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,8 +40,8 @@ public class UserService {
             return new ResponseEntity<>(datos,
                     HttpStatus.CONFLICT);
         } else {
-            UserResgitration savedUser = userRepository.save(userResgitration);
-            datos.put("data", savedUser);
+            UserResgitration savedUserResgitration = userRepository.save(userResgitration);
+            datos.put("data", savedUserResgitration);
             datos.put("message", "Se guardó con éxito");
             return new ResponseEntity<>(datos, HttpStatus.CREATED);
         }
@@ -62,8 +62,8 @@ public class UserService {
         if (userResgitration.getId() != null) {
             datos.put("message", "Se actualizo con exito ");
         }
-            UserResgitration savedUser = userRepository.save(userResgitration);
-            datos.put("data", savedUser);
+            UserResgitration savedUserResgitration = userRepository.save(userResgitration);
+            datos.put("data", savedUserResgitration);
 
             return new ResponseEntity<>(datos, HttpStatus.CREATED);
 

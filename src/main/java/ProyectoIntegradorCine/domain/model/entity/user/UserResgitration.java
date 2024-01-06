@@ -22,11 +22,11 @@ import java.util.Collection;
 @Table(schema =  "\"userregistration\"")
 public class UserResgitration implements UserDetails {
 
-@Getter
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-@Column(unique = true)
+    @Column(unique = true)
     private String name;
     private String lastName;
 
@@ -34,14 +34,15 @@ public class UserResgitration implements UserDetails {
     private String password;
     private Integer idUser;
     private Boolean enable;
-@Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.ORDINAL)
     private ERole erole;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
     }
-@Override
+
+    @Override
     public String getPassword() {
         return this.password;
     }
@@ -70,14 +71,12 @@ public class UserResgitration implements UserDetails {
     public boolean isEnabled() {
         return this.enable;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
     private String email;
-
-
-
 
 
     public UserResgitration(String name, String lastName, Integer idUser, String email) {
@@ -87,10 +86,10 @@ public class UserResgitration implements UserDetails {
         this.idUser = idUser;
         this.email = email;
 
-        this.password= password;
+        this.password = password;
     }
 
-    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email,String password) {
+    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email, String password) {
 
     }
 
@@ -102,7 +101,7 @@ public class UserResgitration implements UserDetails {
         this.idUser = idUser;
         this.email = email;
 
-        this.password= password;
+        this.password = password;
 
     }
 
