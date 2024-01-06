@@ -1,4 +1,13 @@
 package ProyectoIntegradorCine.aplication.services.servicesmovies;
 
-public class ServiceMovie {
+public class ServiceMovie implements MovieServices {
+    @Override
+    public void Reservar() {
+
+    }
+
+    @Override
+    public void Menbresia() {
+
+    }
 }

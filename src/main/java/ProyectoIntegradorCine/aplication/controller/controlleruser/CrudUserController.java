@@ -1,7 +1,7 @@
 package ProyectoIntegradorCine.aplication.controller.controlleruser;
 
 import ProyectoIntegradorCine.domain.model.entity.user.UserResgitration;
-import ProyectoIntegradorCine.aplication.services.servicesuser.ServicesUser;
+import ProyectoIntegradorCine.aplication.services.servicesuser.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,14 +17,14 @@ import java.util.List;
 @RequestMapping ("/v1/api/user")
 @RestController
 class CrudUserController {
-    private final ServicesUser servicesUser;
+    private final UserService userService;
 
 // inyectando en el constructor el services
     @Autowired
-    public CrudUserController(ServicesUser servicesUser) {
-        this.servicesUser = servicesUser;}
+    public CrudUserController(UserService userService) {
+        this.userService = userService;}
 /// mostrar usuarios
-@Operation(summary = "Return view User ")
+@Operation(summary = "Return view UserResgitration ")
 @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Successfully users",
                 content = @Content(mediaType = "application/json",
@@ -34,27 +34,27 @@ class CrudUserController {
 })
 @GetMapping(path = "view")
 public List<UserResgitration> getUser(){
-        return this.servicesUser.getUser();
+        return this.userService.getUser();
     }
    /// añadir usuario
 
-    @Operation(summary = "modify user list ")
+    @Operation(summary = "modify userResgitration list ")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "the user was created successfully",
+            @ApiResponse(responseCode = "201", description = "the userResgitration was created successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = UserResgitration.class))),
-            @ApiResponse(responseCode = "404", description = "cannot create a user",
+            @ApiResponse(responseCode = "404", description = "cannot create a userResgitration",
                     content = @Content),
     })
     @PostMapping(path = "add")
     public ResponseEntity<Object> Add(@RequestBody UserResgitration userResgitration){
-      return  this.servicesUser.newUser(userResgitration);
+      return  this.userService.newUser(userResgitration);
     }
 
     /// actualizando
-    @Operation(summary = "update user ")
+    @Operation(summary = "update userResgitration ")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "updated user successfully",
+            @ApiResponse(responseCode = "201", description = "updated userResgitration successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = UserResgitration.class))),
             @ApiResponse(responseCode = "409", description = "did not respond to the update",
@@ -63,7 +63,7 @@ public List<UserResgitration> getUser(){
 
     @PutMapping(path = "update")
     public ResponseEntity<Object> Update(@RequestBody UserResgitration userResgitration){
-        return  this.servicesUser.updateUser(userResgitration);
+        return  this.userService.updateUser(userResgitration);
     }
     @Operation(summary = "delet user ")
     @ApiResponses(value = {
@@ -75,7 +75,7 @@ public List<UserResgitration> getUser(){
     })
     @DeleteMapping(path = "{id}")
     public ResponseEntity<Object> delete(@PathVariable("id") Integer id){
-        return  this.servicesUser.delete(id);
+        return  this.userService.delete(id);
 
     }
 

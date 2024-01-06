@@ -22,11 +22,11 @@ import java.util.Collection;
 @Table(schema =  "\"userregistration\"")
 public class UserResgitration implements UserDetails {
 
-@Getter
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-@Column(unique = true)
+    @Column(unique = true)
     private String name;
     private String lastName;
 
@@ -34,14 +34,14 @@ public class UserResgitration implements UserDetails {
     private String password;
     private Integer idUser;
     private Boolean enable;
-@Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.ORDINAL)
     private ERole erole;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
     }
-@Override
+    @Override
     public String getPassword() {
         return this.password;
     }
@@ -141,4 +141,3 @@ public class UserResgitration implements UserDetails {
     public void setEmail(String email) {
         this.email = email;
     }
-}
