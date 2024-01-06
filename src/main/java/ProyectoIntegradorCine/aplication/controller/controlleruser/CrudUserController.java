@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping ("/v1/api")
+@RequestMapping ("/v1/api/user")
 @RestController
 class CrudUserController {
     private final UserService userService;
