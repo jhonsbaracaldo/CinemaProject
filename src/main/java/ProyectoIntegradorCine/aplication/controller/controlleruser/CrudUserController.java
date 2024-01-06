@@ -1,7 +1,7 @@
 package ProyectoIntegradorCine.aplication.controller.controlleruser;
 
 import ProyectoIntegradorCine.domain.model.entity.user.UserResgitration;
-import ProyectoIntegradorCine.aplication.services.servicesuser.ServicesUser;
+import ProyectoIntegradorCine.aplication.services.servicesuser.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,12 +17,12 @@ import java.util.List;
 @RequestMapping ("/v1/api")
 @RestController
 class CrudUserController {
-    private final ServicesUser servicesUser;
+    private final UserService userService;
 
 // inyectando en el constructor el services
     @Autowired
-    public CrudUserController(ServicesUser servicesUser) {
-        this.servicesUser = servicesUser;}
+    public CrudUserController(UserService userService) {
+        this.userService = userService;}
 /// mostrar usuarios
 @Operation(summary = "Return view User ")
 @ApiResponses(value = {
@@ -34,7 +34,7 @@ class CrudUserController {
 })
 @GetMapping(path = "view")
 public List<UserResgitration> getUser(){
-        return this.servicesUser.getUser();
+        return this.userService.getUser();
     }
    /// añadir usuario
 
@@ -48,7 +48,7 @@ public List<UserResgitration> getUser(){
     })
     @PostMapping(path = "add")
     public ResponseEntity<Object> Add(@RequestBody UserResgitration userResgitration){
-      return  this.servicesUser.newUser(userResgitration);
+      return  this.userService.newUser(userResgitration);
     }
 
     /// actualizando
@@ -63,7 +63,7 @@ public List<UserResgitration> getUser(){
 
     @PutMapping(path = "update")
     public ResponseEntity<Object> Update(@RequestBody UserResgitration userResgitration){
-        return  this.servicesUser.updateUser(userResgitration);
+        return  this.userService.updateUser(userResgitration);
     }
     @Operation(summary = "delet user ")
     @ApiResponses(value = {
@@ -75,7 +75,7 @@ public List<UserResgitration> getUser(){
     })
     @DeleteMapping(path = "{id}")
     public ResponseEntity<Object> delete(@PathVariable("id") Integer id){
-        return  this.servicesUser.delete(id);
+        return  this.userService.delete(id);
 
     }
 

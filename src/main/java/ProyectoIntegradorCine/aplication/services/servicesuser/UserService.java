@@ -13,12 +13,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class    ServicesUser {
+public class UserService {
 
     private final UserRepository userRepository;
     HashMap<String, Object> datos = new HashMap<>();
     @Autowired
-    public ServicesUser(UserRepository userRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
