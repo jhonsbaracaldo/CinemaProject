@@ -1,7 +1,7 @@
 package ProyectoIntegradorCine.aplication.controller;
 
 import ProyectoIntegradorCine.domain.Entity.UserResgitration;
-import ProyectoIntegradorCine.aplication.ServicesUser;
+import ProyectoIntegradorCine.aplication.services.ServicesUser;
 import io.swagger.v3.oas.annotations.Operation;
 
 import io.swagger.v3.oas.annotations.media.Content;

@@ -1,4 +1,4 @@
-package ProyectoIntegradorCine.aplication;
+package ProyectoIntegradorCine.aplication.services;
 
 
 import ProyectoIntegradorCine.infraestructur.UserRepository;
