@@ -1,22 +1,18 @@
-package ProyectoIntegradorCine;
+package ProyectoIntegradorCine.aplication.controller;
 
-import ProyectoIntegradorCine.Controller.Entity.UserResgitration;
-import ProyectoIntegradorCine.Controller.Services.ServicesUser;
+import ProyectoIntegradorCine.domain.Entity.UserResgitration;
+import ProyectoIntegradorCine.aplication.ServicesUser;
 import io.swagger.v3.oas.annotations.Operation;
 
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.hibernate.sql.ast.tree.insert.Values;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
-import java.util.Objects;
 
 @RequestMapping ("/v1/api")
 @RestController
