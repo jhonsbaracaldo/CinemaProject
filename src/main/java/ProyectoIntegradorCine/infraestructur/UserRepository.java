@@ -1,5 +1,6 @@
-package ProyectoIntegradorCine.Controller.Entity;
+package ProyectoIntegradorCine.infraestructur;
 
+import ProyectoIntegradorCine.domain.Entity.UserResgitration;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
