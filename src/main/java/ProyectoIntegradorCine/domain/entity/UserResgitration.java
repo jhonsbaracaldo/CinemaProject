@@ -1,4 +1,4 @@
-package ProyectoIntegradorCine.domain.Entity;
+package ProyectoIntegradorCine.domain.entity;
 
 import jakarta.persistence.*;
 

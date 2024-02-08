@@ -1,7 +1,7 @@
-package ProyectoIntegradorCine.infraestructur;
+package ProyectoIntegradorCine.infraestructur.repository;
 
 
-import ProyectoIntegradorCine.domain.Entity.Booking;
+import ProyectoIntegradorCine.domain.entity.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

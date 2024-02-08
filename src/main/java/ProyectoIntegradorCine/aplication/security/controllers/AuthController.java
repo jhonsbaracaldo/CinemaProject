@@ -1,7 +1,11 @@
 package ProyectoIntegradorCine.aplication.security.controllers;
 
 
+
+import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity;
+
 import ProyectoIntegradorCine.aplication.security.persistence.entities.UserEntity;
+
 import ProyectoIntegradorCine.aplication.security.services.IAuthService;
 import ProyectoIntegradorCine.aplication.security.services.models.dtos.LoginDTO;
 import ProyectoIntegradorCine.aplication.security.services.models.dtos.ResponseDTO;
