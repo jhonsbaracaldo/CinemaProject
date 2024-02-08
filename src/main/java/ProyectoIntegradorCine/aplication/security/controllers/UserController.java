@@ -1,8 +1,13 @@
 package ProyectoIntegradorCine.aplication.security.controllers;
 
 
+
 import ProyectoIntegradorCine.aplication.security.persistence.dto.UserDto;
 import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity;
+
+import ProyectoIntegradorCine.aplication.security.persistence.DTO.UserDto;
+import ProyectoIntegradorCine.aplication.security.persistence.entities.UserEntity;
+
 import ProyectoIntegradorCine.aplication.security.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

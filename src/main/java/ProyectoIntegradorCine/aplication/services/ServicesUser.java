@@ -1,8 +1,13 @@
 package ProyectoIntegradorCine.aplication.services;
 
 
+
 import ProyectoIntegradorCine.infraestructur.repository.UserRepository;
 import ProyectoIntegradorCine.domain.entity.UserResgitration;
+
+import ProyectoIntegradorCine.infraestructur.UserRepository;
+import ProyectoIntegradorCine.domain.Entity.UserResgitration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
