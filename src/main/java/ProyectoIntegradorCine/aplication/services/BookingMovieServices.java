@@ -3,9 +3,9 @@ package ProyectoIntegradorCine.aplication.services;
 
 
 
-import ProyectoIntegradorCine.domain.Entity.Booking;
+import ProyectoIntegradorCine.domain.entity.Booking;
 import ProyectoIntegradorCine.domain.models.BookingMovieDto;
-import ProyectoIntegradorCine.infraestructur.IBookingMovieRepository;
+import ProyectoIntegradorCine.infraestructur.repository.IBookingMovieRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

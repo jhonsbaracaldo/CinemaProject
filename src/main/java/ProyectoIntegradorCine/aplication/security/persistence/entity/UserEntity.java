@@ -1,4 +1,4 @@
-package ProyectoIntegradorCine.aplication.security.persistence.entities;
+package ProyectoIntegradorCine.aplication.security.persistence.entity;
 
 import jakarta.persistence.*;
 

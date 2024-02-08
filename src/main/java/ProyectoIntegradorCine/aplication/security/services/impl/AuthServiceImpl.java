@@ -1,7 +1,7 @@
 package ProyectoIntegradorCine.aplication.security.services.impl;
 
 
-import ProyectoIntegradorCine.aplication.security.persistence.entities.UserEntity;
+import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity;
 import ProyectoIntegradorCine.aplication.security.persistence.repositories.SUserRepository;
 import ProyectoIntegradorCine.aplication.security.services.IAuthService;
 import ProyectoIntegradorCine.aplication.security.services.IJWTUtilityService;

@@ -1,4 +1,4 @@
-package ProyectoIntegradorCine.aplication.security.persistence.DTO;
+package ProyectoIntegradorCine.aplication.security.persistence.dto;
 
 import java.io.Serializable;
 

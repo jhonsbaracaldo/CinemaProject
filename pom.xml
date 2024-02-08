@@ -17,11 +17,7 @@
 		<java.version>17</java.version>
 	</properties>
 <dependencies>
-	<dependency>
-		<groupId>org.springdoc</groupId>
-		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-		<version>2.2.0</version>
-	</dependency>
+
 
 	<dependency>
 		<groupId>org.modelmapper</groupId>
@@ -59,6 +55,17 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		<version>2.2.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+		<version>2.1.0</version>
+	</dependency>
 	<dependency>
 		<groupId>io.swagger.core.v3</groupId>
 		<artifactId>swagger-models-jakarta</artifactId>
@@ -99,6 +106,8 @@
 		<artifactId>spring-security-web</artifactId>
 		<version>6.2.1</version>
 	</dependency>
+
+
 
 </dependencies>
 	<build>
