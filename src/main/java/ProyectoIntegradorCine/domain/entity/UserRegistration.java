@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(schema =  "\"userregistration\"")
-public class UserResgitration {
+public class UserRegistration {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -15,18 +15,18 @@ public class UserResgitration {
     private String email;
 
     private String o;
-    public UserResgitration() {
+    public UserRegistration() {
     }
 
 
-    public UserResgitration(String name, String lastName, Integer idUser, String email) {
+    public UserRegistration(String name, String lastName, Integer idUser, String email) {
         this.name = name;
         this.lastName = lastName;
         this.idUser = idUser;
         this.email = email;
     }
 
-    public UserResgitration(Integer id, String name, String lastName, Integer idUser, String email) {
+    public UserRegistration(Integer id, String name, String lastName, Integer idUser, String email) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;

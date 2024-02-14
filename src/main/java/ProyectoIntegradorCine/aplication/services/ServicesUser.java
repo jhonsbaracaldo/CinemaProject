@@ -2,7 +2,7 @@ package ProyectoIntegradorCine.aplication.services;
 
 
 import ProyectoIntegradorCine.infraestructur.repository.UserRepository;
-import ProyectoIntegradorCine.domain.entity.UserResgitration;
+import ProyectoIntegradorCine.domain.entity.UserRegistration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -24,14 +25,17 @@ public class    ServicesUser {
 
 
     //vista de usuarios@get
-    public List<UserResgitration> getUser() {
+    public List<UserRegistration> getUser() {
         return this.userRepository.findAll();
-
     }
 
+    // vista de usuario por id
+    public Optional<UserRegistration> getUserById(Long id) {
+        return userRepository.findById(id);
+    }
     /// añadir usuarios@post
-    public ResponseEntity<Object> newUser(UserResgitration userResgitration) {
-        Optional<UserResgitration> res = userRepository.findByName(userResgitration.getName());
+    public ResponseEntity<Object> newUser(UserRegistration userRegistration) {
+        Optional<UserRegistration> res = userRepository.findByName(userRegistration.getName());
 
 
         if (res.isPresent()) {
@@ -40,33 +44,35 @@ public class    ServicesUser {
             return new ResponseEntity<>(datos,
                     HttpStatus.CONFLICT);
         } else {
-            UserResgitration savedUser = userRepository.save(userResgitration);
+            UserRegistration savedUser = userRepository.save(userRegistration);
             datos.put("data", savedUser);
             datos.put("message", "Se guardó con éxito");
             return new ResponseEntity<>(datos, HttpStatus.CREATED);
         }
     }
 
+
+
     /// actualizar@put
-    public ResponseEntity<Object> updateUser(UserResgitration userResgitration) {
-        Optional<UserResgitration> res = userRepository.findByName(userResgitration.getName());
+    public ResponseEntity<Object> updateUser(Long userId, UserRegistration userRegistration) {
+        Map<String, Object> datos = new HashMap<>(); // Crea un nuevo mapa para almacenar los datos de la respuesta
 
+        Optional<UserRegistration> existingUserOptional = userRepository.findById(userId);
 
-        if (res.isPresent()&& userResgitration.getId()==null) {
+        if (existingUserOptional.isPresent()) {
+            UserRegistration existingUser = existingUserOptional.get();
+            existingUser.setName(userRegistration.getName());
+            existingUser.setEmail(userRegistration.getEmail());
+
+            UserRegistration updatedUser = userRepository.save(existingUser);
+            datos.put("message", "Se actualizó con éxito");
+            datos.put("data", updatedUser);
+            return new ResponseEntity<>(datos, HttpStatus.OK);
+        } else {
             datos.put("error", true);
-            datos.put("massage", "ya hay un usuario registrado con ese nombre ");
-            return new ResponseEntity<>(datos,
-                    HttpStatus.CONFLICT);
+            datos.put("message", "No se encontró ningún usuario con el ID proporcionado");
+            return new ResponseEntity<>(datos, HttpStatus.NOT_FOUND);
         }
-        datos.put("message", "Se guardó con éxito");
-        if (userResgitration.getId() != null) {
-            datos.put("message", "Se actualizo con exito ");
-        }
-            UserResgitration savedUser = userRepository.save(userResgitration);
-            datos.put("data", savedUser);
-
-            return new ResponseEntity<>(datos, HttpStatus.CREATED);
-
     }
 
     public ResponseEntity<Object> delete(Integer id){

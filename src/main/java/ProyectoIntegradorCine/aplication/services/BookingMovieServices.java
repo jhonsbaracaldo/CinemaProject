@@ -25,12 +25,14 @@ public class BookingMovieServices {
     private ModelMapper modelMapper;
 
 
-    public List<BookingMovieDto> viewMovie() {
+    public List<BookingMovieDto> viewReservation() {
         List<Booking> entities = movieRepository.findAll();
         return entities.stream().map(booking -> modelMapper.map(booking, BookingMovieDto.class)).toList();
     }
 
-    public ResponseEntity<Object> selectMovie(BookingMovieDto bookingmovieDTO) {
+
+
+    public ResponseEntity<Object> createReservation(BookingMovieDto bookingmovieDTO) {
         Optional<Booking> existingBooking = movieRepository.findProductByName(bookingmovieDTO.getName());
         if (existingBooking.isPresent()) {
             datos.put("error", true);
@@ -50,18 +52,18 @@ public class BookingMovieServices {
         }
     }
 
-    public ResponseEntity<Object> updateMovie(BookingMovieDto bookingmovieDTO, Integer id) {
+    public ResponseEntity<Object> updateReservation(BookingMovieDto bookingmovieDTO, Integer id) {
         Optional<Booking> existingBooking = movieRepository.findById(id);
         if (!existingBooking.isPresent()) {
             datos.put("error", true);
-            datos.put("message", "La película no existe");
+            datos.put("message", "No existe la pelicula ");
             return new ResponseEntity<>(datos, HttpStatus.NOT_FOUND);
         }
         Booking booking = modelMapper.map(bookingmovieDTO, Booking.class);
         booking.setId(id);
         Booking savedBooking = movieRepository.save(booking);
         BookingMovieDto savedDTO = modelMapper.map(savedBooking, BookingMovieDto.class);
-        datos.put("message", "La película se actualizó exitosamente");
+        datos.put("message", "Se actualizo la reservacion con exito ");
         datos.put("Booking", savedDTO);
         return new ResponseEntity<>(datos, HttpStatus.OK);
     }

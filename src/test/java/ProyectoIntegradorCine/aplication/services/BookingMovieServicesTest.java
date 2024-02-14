@@ -44,7 +44,7 @@ class BookingMovieServicesTest {
 
         when(movieRepository.findAll()).thenReturn(bookingList);
 
-        List<BookingMovieDto> result = bookingMovieServices.viewMovie();
+        List<BookingMovieDto> result = bookingMovieServices.viewReservation();
 
         assertEquals(2, result.size());
     }
@@ -57,7 +57,7 @@ class BookingMovieServicesTest {
         when(modelMapper.map(any(Booking.class), eq(BookingMovieDto.class))).thenReturn(bookingDto);
         when(movieRepository.save(any(Booking.class))).thenReturn(new Booking(1, "Joker", "Sala 3", 30, LocalDate.now()));
 
-        ResponseEntity<Object> response = bookingMovieServices.selectMovie(bookingDto);
+        ResponseEntity<Object> response = bookingMovieServices.createReservation(bookingDto);
 
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
     }
@@ -67,7 +67,7 @@ class BookingMovieServicesTest {
         BookingMovieDto bookingDto = new BookingMovieDto("Avengers", "Sala 1", 50, LocalDate.now());
         when(movieRepository.findProductByName("Avengers")).thenReturn(Optional.of(new Booking()));
 
-        ResponseEntity<Object> response = bookingMovieServices.selectMovie(bookingDto);
+        ResponseEntity<Object> response = bookingMovieServices.createReservation(bookingDto);
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
@@ -80,7 +80,7 @@ class BookingMovieServicesTest {
         when(modelMapper.map(bookingDto, Booking.class)).thenReturn(new Booking(id, "Joker", "Sala 3", 30, LocalDate.now()));
         when(movieRepository.save(any(Booking.class))).thenReturn(new Booking(id, "Joker", "Sala 3", 30, LocalDate.now()));
 
-        ResponseEntity<Object> response = bookingMovieServices.updateMovie(bookingDto, id);
+        ResponseEntity<Object> response = bookingMovieServices.updateReservation(bookingDto, id);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
@@ -91,7 +91,7 @@ class BookingMovieServicesTest {
         int id = 1;
         when(movieRepository.findById(id)).thenReturn(Optional.empty());
 
-        ResponseEntity<Object> response = bookingMovieServices.updateMovie(bookingDto, id);
+        ResponseEntity<Object> response = bookingMovieServices.updateReservation(bookingDto, id);
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }

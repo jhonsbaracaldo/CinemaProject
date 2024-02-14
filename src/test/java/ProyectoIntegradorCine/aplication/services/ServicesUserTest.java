@@ -1,6 +1,6 @@
 package ProyectoIntegradorCine.aplication.services;
 
-import ProyectoIntegradorCine.domain.entity.UserResgitration;
+import ProyectoIntegradorCine.domain.entity.UserRegistration;
 import ProyectoIntegradorCine.infraestructur.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
 class ServicesUserTest {
@@ -33,20 +32,20 @@ class ServicesUserTest {
 
     @Test
     void getUser() {
-        List<UserResgitration> userList = new ArrayList<>();
-        userList.add(new UserResgitration("Juan", "Rodri", 1, "juan@example.com"));
-        userList.add(new UserResgitration("Alice", "paez", 2, "alice@example.com"));
+        List<UserRegistration> userList = new ArrayList<>();
+        userList.add(new UserRegistration("Juan", "Rodri", 1, "juan@example.com"));
+        userList.add(new UserRegistration("Alice", "paez", 2, "alice@example.com"));
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        List<UserResgitration> result = servicesUser.getUser();
+        List<UserRegistration> result = servicesUser.getUser();
 
         assertEquals(2, result.size());
     }
 
     @Test
     void newUser() {
-        UserResgitration newUser = new UserResgitration("harold", "bronco", 3, "harold@example.com");
+        UserRegistration newUser = new UserRegistration("harold", "bronco", 3, "harold@example.com");
         when(userRepository.findByName("harold")).thenReturn(Optional.empty());
         when(userRepository.save(newUser)).thenReturn(newUser);
         ResponseEntity<Object> response = servicesUser.newUser(newUser);
@@ -55,7 +54,7 @@ class ServicesUserTest {
 
     @Test
     void newUserWithNameAlreadyExists() {
-        UserResgitration existingUser = new UserResgitration("Alice", "paez", 2, "alice@example.com");
+        UserRegistration existingUser = new UserRegistration("Alice", "paez", 2, "alice@example.com");
         when(userRepository.findByName("Alice")).thenReturn(Optional.of(existingUser));
         ResponseEntity<Object> response = servicesUser.newUser(existingUser);
         assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
@@ -63,7 +62,7 @@ class ServicesUserTest {
 
      @Test
     void updateUser() {
-         UserResgitration userToUpdate = new UserResgitration("Alice", "paez", 2, "alice@example.com");
+         UserRegistration userToUpdate = new UserRegistration("Alice", "paez", 2, "alice@example.com");
          when(userRepository.findByName("John")).thenReturn(Optional.of(userToUpdate));
         when(userRepository.save(userToUpdate)).thenReturn(userToUpdate);
 
@@ -74,7 +73,7 @@ class ServicesUserTest {
 
     @Test
     void updateUserWithExistingName() {
-        UserResgitration existingUser = new UserResgitration("Alice", "paez", 2, "alice@example.com");
+        UserRegistration existingUser = new UserRegistration("Alice", "paez", 2, "alice@example.com");
         when(userRepository.findByName("Alice")).thenReturn(Optional.of(existingUser));
         ResponseEntity<Object> response = servicesUser.updateUser(existingUser);
         assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
@@ -82,7 +81,7 @@ class ServicesUserTest {
 
     @Test
     void updateUserWithExistingNameAndId() {
-        UserResgitration existingUser = new UserResgitration("Alice", "paez", 2, "alice@example.com");
+        UserRegistration existingUser = new UserRegistration("Alice", "paez", 2, "alice@example.com");
         existingUser.setId(1);
         when(userRepository.findByName("Alice")).thenReturn(Optional.of(existingUser));
         ResponseEntity<Object> response = servicesUser.updateUser(existingUser);
