@@ -2,9 +2,7 @@ package ProyectoIntegradorCine.aplication.security.controllers;
 
 
 
-import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity;
-
-import ProyectoIntegradorCine.aplication.security.persistence.entities.UserEntity;
+import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity1;
 
 import ProyectoIntegradorCine.aplication.security.services.IAuthService;
 import ProyectoIntegradorCine.aplication.security.services.models.dtos.LoginDTO;
@@ -27,8 +25,8 @@ public class AuthController {
     private IAuthService authService;
 
     @PostMapping("/register")
-    private ResponseEntity<ResponseDTO> addUser(@RequestBody UserEntity userEntity) throws Exception {
-        return new ResponseEntity<>(authService.register(userEntity), HttpStatus.OK);
+    private ResponseEntity<ResponseDTO> addUser(@RequestBody UserEntity1 userEntity1) throws Exception {
+        return new ResponseEntity<>(authService.register(userEntity1), HttpStatus.OK);
     }
 
     @PostMapping("/login")

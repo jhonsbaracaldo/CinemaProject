@@ -2,9 +2,7 @@ package ProyectoIntegradorCine.aplication.security.services.impl;
 
 
 
-import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity;
-
-import ProyectoIntegradorCine.aplication.security.persistence.entities.UserEntity;
+import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity1;
 
 import ProyectoIntegradorCine.aplication.security.persistence.repositories.SUserRepository;
 import ProyectoIntegradorCine.aplication.security.services.IAuthService;
@@ -37,10 +35,10 @@ public class AuthServiceImpl implements IAuthService {
     public HashMap<String, String> login(LoginDTO loginRequest) throws Exception {
         try {
             HashMap<String, String> jwt = new HashMap<>();
-            Optional<UserEntity> user = SUserRepository.findByEmail(loginRequest.getEmail());
+            Optional<UserEntity1> user = SUserRepository.findByEmail(loginRequest.getEmail());
 
             if (user.isEmpty()) {
-                jwt.put("error", "UserEntity not registered!");
+                jwt.put("error", "UserEntity1 not registered!");
                 return jwt;
             }
             if (verifyPassword(loginRequest.getPassword(), user.get().getPassword())) {
@@ -59,10 +57,10 @@ public class AuthServiceImpl implements IAuthService {
     }
 
     @Override
-    public ResponseDTO register(UserEntity userEntity) throws Exception {
+    public ResponseDTO register(UserEntity1 userEntity1) throws Exception {
         try {
-            ResponseDTO response = userValidations.validate(userEntity);
-            List<UserEntity> getAllUserEntities = SUserRepository.findAll();
+            ResponseDTO response = userValidations.validate(userEntity1);
+            List<UserEntity1> getAllUserEntities = SUserRepository.findAll();
 
             if (response.getNumOfErrors() > 0){
                 return response;
@@ -70,18 +68,18 @@ public class AuthServiceImpl implements IAuthService {
 
 
             // Verificación de correo electrónico existente
-            List<UserEntity> allUserEntities = SUserRepository.findAll();
-            for (UserEntity existingUserEntity : getAllUserEntities) {
-                if (existingUserEntity.getEmail().equals(userEntity.getEmail())) {
-                    response.setMessage("UserEntity with the same email already exists!");
+            List<UserEntity1> allUserEntities = SUserRepository.findAll();
+            for (UserEntity1 existingUserEntity1 : getAllUserEntities) {
+                if (existingUserEntity1.getEmail().equals(userEntity1.getEmail())) {
+                    response.setMessage("UserEntity1 with the same email already exists!");
                     return response;
                 }
             }
 
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
-            userEntity.setPassword(encoder.encode(userEntity.getPassword()));
-            SUserRepository.save(userEntity);
-            response.setMessage("UserEntity created successfully!");
+            userEntity1.setPassword(encoder.encode(userEntity1.getPassword()));
+            SUserRepository.save(userEntity1);
+            response.setMessage("UserEntity1 created successfully!");
             return response;
         } catch (Exception e) {
             throw new Exception(e.getMessage());

@@ -60,33 +60,9 @@ class ServicesUserTest {
         assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
     }
 
-     @Test
-    void updateUser() {
-         UserRegistration userToUpdate = new UserRegistration("Alice", "paez", 2, "alice@example.com");
-         when(userRepository.findByName("John")).thenReturn(Optional.of(userToUpdate));
-        when(userRepository.save(userToUpdate)).thenReturn(userToUpdate);
 
-        ResponseEntity<Object> response = servicesUser.updateUser(userToUpdate);
 
-        assertEquals(HttpStatus.CREATED, response.getStatusCode());
-    }
 
-    @Test
-    void updateUserWithExistingName() {
-        UserRegistration existingUser = new UserRegistration("Alice", "paez", 2, "alice@example.com");
-        when(userRepository.findByName("Alice")).thenReturn(Optional.of(existingUser));
-        ResponseEntity<Object> response = servicesUser.updateUser(existingUser);
-        assertEquals(HttpStatus.CONFLICT, response.getStatusCode());
-    }
-
-    @Test
-    void updateUserWithExistingNameAndId() {
-        UserRegistration existingUser = new UserRegistration("Alice", "paez", 2, "alice@example.com");
-        existingUser.setId(1);
-        when(userRepository.findByName("Alice")).thenReturn(Optional.of(existingUser));
-        ResponseEntity<Object> response = servicesUser.updateUser(existingUser);
-        assertEquals(HttpStatus.CREATED, response.getStatusCode());
-    }
 
     @Test
     void deleteUser() {

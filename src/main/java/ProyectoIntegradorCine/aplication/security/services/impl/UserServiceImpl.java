@@ -2,11 +2,10 @@ package ProyectoIntegradorCine.aplication.security.services.impl;
 
 
 
-import ProyectoIntegradorCine.aplication.security.persistence.dto.UserDto;
-import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity;
+
+import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity1;
 
 import ProyectoIntegradorCine.aplication.security.persistence.DTO.UserDto;
-import ProyectoIntegradorCine.aplication.security.persistence.entities.UserEntity;
 
 import ProyectoIntegradorCine.aplication.security.persistence.repositories.SUserRepository;
 import ProyectoIntegradorCine.aplication.security.services.IUserService;
@@ -24,20 +23,20 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public List<UserEntity> findAllUsers(){
+    public List<UserEntity1> findAllUsers(){
 
         return SUserRepository.findAll();
     }
 
 
     @Override
-    public Optional<UserEntity> newUser(UserDto userdto) {
-         UserEntity userEntity = new UserEntity();
-         userEntity.setFirstName(userdto.getFirstname());
-         userEntity.setLastName(userdto.getLastname());
-         userEntity.setPhone(userdto.getPhone());
-         userEntity.setEmail(userdto.getEmail());
-         userEntity.setPassword(userdto.getPassword());
-         return Optional.of(SUserRepository.save(userEntity));
+    public Optional<UserEntity1> newUser(UserDto userdto) {
+         UserEntity1 userEntity1 = new UserEntity1();
+         userEntity1.setFirstName(userdto.getFirstname());
+         userEntity1.setLastName(userdto.getLastname());
+         userEntity1.setPhone(userdto.getPhone());
+         userEntity1.setEmail(userdto.getEmail());
+         userEntity1.setPassword(userdto.getPassword());
+         return Optional.of(SUserRepository.save(userEntity1));
     }
 }

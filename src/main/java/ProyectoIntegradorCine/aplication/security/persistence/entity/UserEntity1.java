@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(schema =  "\"userregistration\"",name = "user")
-public class UserEntity {
+public class UserEntity1 {
 
-    public UserEntity() {
+    public UserEntity1() {
     }
 
     @Id
