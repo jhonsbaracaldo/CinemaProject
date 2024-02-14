@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "v1/movie")
+@RequestMapping(path = "v1/Booking")
 public class BookingMovieController {
  private  final BookingMovieServices bookingMovieServices;
 
@@ -21,17 +21,17 @@ public class BookingMovieController {
     }
     @GetMapping("/allMovie")
     public List<BookingMovieDto> viewMovie() {
-        return bookingMovieServices.viewMovie(); // Ahora retorna DTOs
+        return bookingMovieServices.viewReservation(); // Ahora retorna DTOs
     }
 
     @PostMapping("addMovie")
     public ResponseEntity<Object> selectMovie(@RequestBody BookingMovieDto movieDTO) { // Recibe DTO
-        return this.bookingMovieServices.selectMovie(movieDTO);
+        return this.bookingMovieServices.createReservation(movieDTO);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateMovie(@RequestBody BookingMovieDto movieDTO, @PathVariable Integer id) {
-        return bookingMovieServices.updateMovie(movieDTO, id);
+        return bookingMovieServices.updateReservation(movieDTO, id);
     }
 
     @DeleteMapping(path = "{id}")
