@@ -2,11 +2,10 @@ package ProyectoIntegradorCine.aplication.security.controllers;
 
 
 
-import ProyectoIntegradorCine.aplication.security.persistence.dto.UserDto;
-import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity;
+
+import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity1;
 
 import ProyectoIntegradorCine.aplication.security.persistence.DTO.UserDto;
-import ProyectoIntegradorCine.aplication.security.persistence.entities.UserEntity;
 
 import ProyectoIntegradorCine.aplication.security.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +25,13 @@ public class UserController {
     IUserService userService;
 
     @GetMapping("/all")
-    private ResponseEntity<List<UserEntity>> getAllUsers(){
+    private ResponseEntity<List<UserEntity1>> getAllUsers(){
         return new ResponseEntity<>(userService.findAllUsers(), HttpStatus.OK);
     }
 
     @PostMapping("/new")
     public ResponseEntity<Object> createUser(@RequestBody UserDto userRegistration) {
-        Optional<UserEntity> newUser = userService.newUser(userRegistration);
+        Optional<UserEntity1> newUser = userService.newUser(userRegistration);
 
         if (newUser.isPresent()) {
             return new ResponseEntity<>(newUser.get(), HttpStatus.CREATED);
