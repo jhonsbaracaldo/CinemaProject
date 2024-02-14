@@ -19,12 +19,13 @@ public class BookingMovieController {
     public BookingMovieController(BookingMovieServices bookingMovieServices) {
         this.bookingMovieServices = bookingMovieServices;
     }
-    @GetMapping("/allMovie")
+    @GetMapping("/allBooking")
     public List<BookingMovieDto> viewMovie() {
         return bookingMovieServices.viewReservation(); // Ahora retorna DTOs
     }
 
-    @PostMapping("addMovie")
+
+    @PostMapping("/addBooking")
     public ResponseEntity<Object> selectMovie(@RequestBody BookingMovieDto movieDTO) { // Recibe DTO
         return this.bookingMovieServices.createReservation(movieDTO);
     }
