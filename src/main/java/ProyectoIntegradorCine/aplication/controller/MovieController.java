@@ -2,10 +2,9 @@ package ProyectoIntegradorCine.aplication.controller;
 
 import ProyectoIntegradorCine.aplication.services.MovieServices;
 import ProyectoIntegradorCine.domain.entity.Movie;
-import ProyectoIntegradorCine.domain.models.MovieDto;
+import ProyectoIntegradorCine.domain.models.Dto.MovieDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

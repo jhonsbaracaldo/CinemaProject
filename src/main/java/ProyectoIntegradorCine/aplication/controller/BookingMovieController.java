@@ -3,7 +3,7 @@ package ProyectoIntegradorCine.aplication.controller;
 
 
 import ProyectoIntegradorCine.aplication.services.BookingMovieServices;
-import ProyectoIntegradorCine.domain.models.BookingMovieDto;
+import ProyectoIntegradorCine.domain.models.Dto.BookingMovieDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

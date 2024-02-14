@@ -1,4 +1,4 @@
-package ProyectoIntegradorCine.domain.models;
+package ProyectoIntegradorCine.domain.models.Dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

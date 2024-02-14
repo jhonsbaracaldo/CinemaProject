@@ -2,9 +2,8 @@ package ProyectoIntegradorCine.aplication.security.services;
 
 
 
+import ProyectoIntegradorCine.aplication.security.persistence.dto.UserEDto;
 import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity1;
-
-import ProyectoIntegradorCine.aplication.security.persistence.DTO.UserDto;
 
 
 import java.util.List;
@@ -14,5 +13,5 @@ public interface IUserService {
 
     public List<UserEntity1> findAllUsers();
 
-    Optional<UserEntity1> newUser(UserDto userRegistration);
+    Optional<UserEntity1> newUser(UserEDto userRegistration);
 }

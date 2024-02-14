@@ -3,11 +3,10 @@ package ProyectoIntegradorCine.aplication.security.services.impl;
 
 
 
+import ProyectoIntegradorCine.aplication.security.persistence.dto.UserEDto;
 import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity1;
 
-import ProyectoIntegradorCine.aplication.security.persistence.DTO.UserDto;
-
-import ProyectoIntegradorCine.aplication.security.persistence.repositories.SUserRepository;
+import ProyectoIntegradorCine.infraestructur.repository.SUserRepository;
 import ProyectoIntegradorCine.aplication.security.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +29,7 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public Optional<UserEntity1> newUser(UserDto userdto) {
+    public Optional<UserEntity1> newUser(UserEDto userdto) {
          UserEntity1 userEntity1 = new UserEntity1();
          userEntity1.setFirstName(userdto.getFirstname());
          userEntity1.setLastName(userdto.getLastname());

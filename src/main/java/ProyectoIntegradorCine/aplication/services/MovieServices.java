@@ -1,10 +1,8 @@
 package ProyectoIntegradorCine.aplication.services;
 
-import ProyectoIntegradorCine.domain.entity.Booking;
 import ProyectoIntegradorCine.domain.entity.Movie;
-import ProyectoIntegradorCine.domain.entity.UserRegistration;
-import ProyectoIntegradorCine.domain.models.BookingMovieDto;
-import ProyectoIntegradorCine.domain.models.MovieDto;
+import ProyectoIntegradorCine.domain.models.Dto.BookingMovieDto;
+import ProyectoIntegradorCine.domain.models.Dto.MovieDto;
 import ProyectoIntegradorCine.domain.models.mapper.MapperMovie;
 import ProyectoIntegradorCine.infraestructur.repository.IMovieRepsitory;
 import org.springframework.beans.factory.annotation.Autowired;

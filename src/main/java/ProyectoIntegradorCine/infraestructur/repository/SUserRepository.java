@@ -1,4 +1,4 @@
-package ProyectoIntegradorCine.aplication.security.persistence.repositories;
+package ProyectoIntegradorCine.infraestructur.repository;
 
 
 

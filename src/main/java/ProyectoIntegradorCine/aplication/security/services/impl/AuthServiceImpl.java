@@ -4,7 +4,7 @@ package ProyectoIntegradorCine.aplication.security.services.impl;
 
 import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity1;
 
-import ProyectoIntegradorCine.aplication.security.persistence.repositories.SUserRepository;
+import ProyectoIntegradorCine.infraestructur.repository.SUserRepository;
 import ProyectoIntegradorCine.aplication.security.services.IAuthService;
 import ProyectoIntegradorCine.aplication.security.services.IJWTUtilityService;
 import ProyectoIntegradorCine.aplication.security.services.models.dtos.LoginDTO;

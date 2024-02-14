@@ -2,8 +2,7 @@ package ProyectoIntegradorCine.domain.models.mapper;
 
 
 import ProyectoIntegradorCine.domain.entity.Movie;
-import ProyectoIntegradorCine.domain.models.BookingMovieDto;
-import ProyectoIntegradorCine.domain.models.MovieDto;
+import ProyectoIntegradorCine.domain.models.Dto.MovieDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

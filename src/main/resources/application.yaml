@@ -2,9 +2,9 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/ProyectCinema
+    url: jdbc:postgresql://cinema-proyect-db.c7mqi2ug8j4d.us-east-2.rds.amazonaws.com/proyect_cinema
     username: postgres
-    password: 1234
+    password: Jhon0218*
   jpa:
     defer-datasource-initialization: true
     hibernate:

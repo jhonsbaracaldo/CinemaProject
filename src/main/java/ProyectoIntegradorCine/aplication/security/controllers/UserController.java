@@ -3,9 +3,8 @@ package ProyectoIntegradorCine.aplication.security.controllers;
 
 
 
+import ProyectoIntegradorCine.aplication.security.persistence.dto.UserEDto;
 import ProyectoIntegradorCine.aplication.security.persistence.entity.UserEntity1;
-
-import ProyectoIntegradorCine.aplication.security.persistence.DTO.UserDto;
 
 import ProyectoIntegradorCine.aplication.security.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<Object> createUser(@RequestBody UserDto userRegistration) {
+    public ResponseEntity<Object> createUser(@RequestBody UserEDto userRegistration) {
         Optional<UserEntity1> newUser = userService.newUser(userRegistration);
 
         if (newUser.isPresent()) {

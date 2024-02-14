@@ -1,14 +1,13 @@
 package ProyectoIntegradorCine.aplication.controller;
 
 import ProyectoIntegradorCine.aplication.services.BookingMovieServices;
-import ProyectoIntegradorCine.domain.models.BookingMovieDto;
+import ProyectoIntegradorCine.domain.models.Dto.BookingMovieDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 

@@ -1,9 +1,9 @@
-package ProyectoIntegradorCine.aplication.security.persistence.DTO;
+package ProyectoIntegradorCine.aplication.security.persistence.dto;
 
 import java.io.Serializable;
 
 
-public class UserDto implements Serializable {
+public class UserEDto implements Serializable {
     private  Integer id;
      private String firstname;
      private String lastname;
@@ -62,10 +62,10 @@ public class UserDto implements Serializable {
         this.password = password;
     }
 
-    public UserDto() {
+    public UserEDto() {
     }
 
-    public UserDto(String firstname, String lastname, Integer phone, String email, String password) {
+    public UserEDto(String firstname, String lastname, Integer phone, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
@@ -73,7 +73,7 @@ public class UserDto implements Serializable {
         this.password = password;
     }
 
-    public UserDto(Integer id, String firstname, String lastname, Integer phone, String email, String password) {
+    public UserEDto(Integer id, String firstname, String lastname, Integer phone, String email, String password) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
