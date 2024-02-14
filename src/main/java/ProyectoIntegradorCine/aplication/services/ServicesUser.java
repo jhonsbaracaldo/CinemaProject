@@ -3,15 +3,9 @@ package ProyectoIntegradorCine.aplication.services;
 
 
 import ProyectoIntegradorCine.infraestructur.repository.UserRepository;
-<<<<<<< HEAD
+
 import ProyectoIntegradorCine.domain.entity.UserRegistration;
-=======
-import ProyectoIntegradorCine.domain.entity.UserResgitration;
 
-import ProyectoIntegradorCine.infraestructur.UserRepository;
-import ProyectoIntegradorCine.domain.Entity.UserResgitration;
-
->>>>>>> 782dca7ddd4d82bf6cb48da0f16b0c783f71fd36
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

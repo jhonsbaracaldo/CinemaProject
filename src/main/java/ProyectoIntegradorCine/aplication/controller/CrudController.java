@@ -1,14 +1,12 @@
 package ProyectoIntegradorCine.aplication.controller;
 
-<<<<<<< HEAD
+
 import ProyectoIntegradorCine.domain.entity.UserRegistration;
-=======
 
-import ProyectoIntegradorCine.domain.entity.UserResgitration;
 
-import ProyectoIntegradorCine.domain.Entity.UserResgitration;
 
->>>>>>> 782dca7ddd4d82bf6cb48da0f16b0c783f71fd36
+
+
 import ProyectoIntegradorCine.aplication.services.ServicesUser;
 import io.swagger.v3.oas.annotations.Operation;
 
