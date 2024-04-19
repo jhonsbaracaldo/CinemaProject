@@ -1,8 +1,9 @@
 package ProyectoIntegradorCine.aplication.services;
 
+import ProyectoIntegradorCine.aplication.services.serviceEntity.BookingMovieServices;
 import ProyectoIntegradorCine.domain.entity.Booking;
 import ProyectoIntegradorCine.domain.models.BookingMovieDto;
-import ProyectoIntegradorCine.infraestructur.repository.IBookingMovieRepository;
+import ProyectoIntegradorCine.infraestructure.IBookingMovieRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

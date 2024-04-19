@@ -2,7 +2,7 @@ package ProyectoIntegradorCine.aplication.controller;
 
 
 
-import ProyectoIntegradorCine.aplication.services.BookingMovieServices;
+import ProyectoIntegradorCine.aplication.services.serviceEntity.BookingMovieServices;
 import ProyectoIntegradorCine.domain.models.BookingMovieDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

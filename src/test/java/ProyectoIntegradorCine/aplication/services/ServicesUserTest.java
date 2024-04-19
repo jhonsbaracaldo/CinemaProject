@@ -1,7 +1,8 @@
 package ProyectoIntegradorCine.aplication.services;
 
+import ProyectoIntegradorCine.aplication.services.serviceEntity.ServicesUser;
 import ProyectoIntegradorCine.domain.entity.UserRegistration;
-import ProyectoIntegradorCine.infraestructur.repository.UserRepository;
+import ProyectoIntegradorCine.infraestructure.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
